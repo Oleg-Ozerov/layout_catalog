@@ -8,15 +8,25 @@
   border-radius: 5px;
 
   &__img {
-    margin: 16px 0 42px;
+    margin-top: 16px;
   }
 
   &__photo {
-    width: 160px;
-    height: 134px;
+    width: $img-width;
+    height: $img-height;
+    transition: transform $default-transition;
+
+    &:hover {
+      box-sizing: content-box;
+      outline: 3px solid #f3f3f3;
+      transform: scale($photo-scale-hovered);
+      padding: ($img-height * ($photo-scale-hovered - 1)/2) 0;
+      margin: (-$img-height * ($photo-scale-hovered - 1)/2) 0;
+    }
   }
 
   &__name {
+    margin-top: 42px;
     font-size: 12px;
     line-height: 15px;
     font-weight: 500;
@@ -63,6 +73,7 @@
     text-transform: uppercase;
     color: #fff;
     border: 1px solid $links-color;
+    transition: all $default-transition;
 
     &:hover {
       color: $links-color;
