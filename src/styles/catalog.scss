@@ -1,21 +1,8 @@
 .catalog {
   display: grid;
-  grid-template-columns: repeat($max-column-count, 1fr);
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, $product-width);
   row-gap: $catalog-row-gap;
   column-gap: $catalog-column-gap;
-
-  @media (max-width: $max-column-count * $product-width
-  + ($max-column-count - 1) *  $catalog-column-gap) {
-    grid-template-columns: repeat($max-column-count - 1, 1fr);
-  }
-
-  @media (max-width: ($max-column-count - 1) * $product-width
-  + ($max-column-count - 2) *  $catalog-column-gap) {
-    grid-template-columns: repeat($max-column-count - 2, 1fr);
-  }
-
-  @media (max-width: ($max-column-count - 2) * $product-width
-  + ($max-column-count - 3) *  $catalog-column-gap) {
-    grid-template-columns: repeat($max-column-count - 3, 1fr);
-  }
+  width: 4 * $product-width + 3 * $catalog-column-gap;
 }
